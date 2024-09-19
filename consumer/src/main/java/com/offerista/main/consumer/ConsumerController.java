@@ -26,7 +26,6 @@ public class ConsumerController {
         List<Integer> primeNumbers = numbers.stream().filter(PrimeChecker::isPrime).collect(Collectors.toList());
 
         if(!primeNumbers.isEmpty()) {
-            log.info("Prime numbers: {}", primeNumbers);
             CSVFileWriter.writeNumbersToCSV(primeNumbers.stream().map(String::valueOf).collect(Collectors.joining(",")),fileName);
         }
 
